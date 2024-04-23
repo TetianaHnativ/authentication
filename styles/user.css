@@ -1,0 +1,59 @@
+.main-title {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.admin-form,
+.user-form,
+.data-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-field {
+  font-size: 20px;
+  text-align: center;
+  border: 1px solid #323232;
+  padding: 10px;
+  border-radius: 10px;
+  width: 300px;
+}
+
+.message {
+  font-size: 18px;
+  margin: 0px;
+  text-align: center;
+  color: red;
+}
+
+.button-submit {
+  font-size: 18px;
+  color: #fff;
+  background-color: #376fdb;
+  border-color: #376fdb;
+  padding: 5px 8px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 500px) {
+  .main-title {
+    font-size: 28px;
+  }
+
+  .input-field {
+    width: 260px;
+    font-size: 18px;
+  }
+
+  .message {
+    font-size: 16px;
+  }
+
+  .button-submit {
+    font-size: 16px;
+  }
+}
