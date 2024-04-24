@@ -2,7 +2,7 @@
 const adminModal = document.getElementById("admin-modal");
 const adminCloseButton = document.getElementById("admin-close-button");
 const adminTitle = document.getElementById("admin-title");
-const formAdmin = document.querySelector(".modal-form");
+const formAdmin = document.getElementById("admin-modal-form");
 
 const nameEditLabel = document.getElementById("edit-name-label");
 const nameEdit = document.getElementById("edit-name-input");
@@ -10,6 +10,9 @@ const blockingEdit = document.getElementById("edit-blocking");
 const passwordRestrictionsEdit = document.getElementById(
   "edit-password-restrictions"
 );
+
+//const modalMessage = document.querySelector(".modal-message");
+//const adminModalMessage = document.querySelector(".admin-modal-message"); - not need
 
 const buttonAdd = document.querySelector(".button-add");
 

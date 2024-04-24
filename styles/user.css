@@ -1,10 +1,37 @@
+main {
+  width: 100%;
+  height: 100%;
+}
+
 .main-title {
   font-size: 30px;
   margin-bottom: 10px;
 }
 
-.admin-form,
-.user-form,
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.button-exit {
+  text-align: center;
+  background-color: red;
+  border-color: red;
+  color: #fff;
+  font-size: 18px;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.button-exit:hover,
+.button-exit:focus {
+  background-color: #376fdb;
+  border-color: #376fdb;
+}
+
 .data-form {
   display: flex;
   flex-direction: column;
@@ -22,7 +49,8 @@
   width: 300px;
 }
 
-.message {
+.message,
+.modal-message {
   font-size: 18px;
   margin: 0px;
   text-align: center;
@@ -37,6 +65,116 @@
   padding: 5px 8px;
   border-radius: 10px;
   cursor: pointer;
+}
+
+/*Modal*/
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#password-modal {
+  display: none;
+}
+
+#admin-modal {
+  display: none;
+}
+
+#index-modal {
+  display: none;
+}
+
+.container {
+  position: relative;
+  background-color: #fff;
+
+  padding: 20px 20px 40px 20px;
+  text-align: center;
+  min-width: 400px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  border: 2px solid #323232;
+  border-radius: 8px;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 100;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.modal-title {
+  font-size: 30px;
+  color: #323232;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.modal-field-input {
+  text-align: center;
+  font-size: 25px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #323232;
+  width: 250px;
+}
+
+.modal-form-button {
+  text-align: center;
+  background-color: #323232;
+  border-color: #323232;
+  color: #fff;
+  font-size: 18px;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.modal-form-button:focus,
+.modal-form-button:hover {
+  background-color: #376fdb;
+  border-color: #376fdb;
+}
+
+.button-change-password {
+  text-align: center;
+  background-color: #323232;
+  border-color: #323232;
+  color: #fff;
+  font-size: 18px;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.button-change-password:focus,
+.button-change-password:hover {
+  background-color: #376fdb;
+  border-color: #376fdb;
 }
 
 @media (max-width: 500px) {
@@ -55,5 +193,23 @@
 
   .button-submit {
     font-size: 16px;
+  }
+
+  .button-change-password {
+    font-size: 15px;
+  }
+
+  /*Modal*/
+  .container {
+    min-width: 280px;
+    padding: 20px 10px 40px 10px;
+  }
+
+  .modal-title {
+    font-size: 25px;
+  }
+
+  .modal-field-input {
+    font-size: 18px;
   }
 }

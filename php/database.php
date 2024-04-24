@@ -26,6 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $username = $postData["username"];
 
+    $passwordConfirm = $postData["passwordConfirm"];
+
     // Виконання SQL-запиту для отримання всіх даних з таблиці
     $sql_user_exist = "SELECT password, blocking, password_restrictions FROM users WHERE name = '$username'";
     $result = $mysqli->query($sql_user_exist);
@@ -40,10 +42,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Ваш обліковий запис заблоковано";
         } else {
             if (!$database_password) {
-                if ($username === "ADMIN") {
-                    echo "registration admin";
-                } else {
-                    echo "registration user";
+                echo "registration";
+                if ($password === $passwordConfirm) {
+                    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+                    $sql_insert_password = "UPDATE users SET password = '$hashed_password' WHERE name = '$username'";
+                    if ($mysqli->query($sql_insert_password) === TRUE) {
+                        if ($username === "ADMIN") {
+                            echo " admin";
+                        } else {
+                            echo " user";
+                        }
+                    } else {
+                        echo "Помилка при збереженні пароля: " . $mysqli->error;
+                    }
                 }
             } else if ($database_password && password_verify($password, $database_password) && $username === "ADMIN") {
                 echo "admin";

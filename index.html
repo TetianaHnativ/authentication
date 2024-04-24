@@ -13,6 +13,7 @@
     />
 
     <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="stylesheet" href="./styles/user.css" />
   </head>
   <body>
     <main>
@@ -20,6 +21,20 @@
       <a id="user" class="roles" href="./php/user.php">
         <h2>Розпочати</h2>
       </a>
+      <div class="roles" onclick="openModal()">
+        <h2>Довідка</h2>
+      </в>
     </main>
+
+    <div class="modal-container" id="index-modal">
+      <div class="container">
+        <button class="modal-close-button" id="user-close-button" onclick="closeModal()">x</button>
+        <h3 class="modal-title" id="user-title">
+          Проєкт створила Гнатів Тетяна
+        </h3>
+      </div>
+    </div>
+
+    <script src="./scripts/index.js"></script>
   </body>
 </html>

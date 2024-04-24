@@ -1,11 +1,7 @@
-const admin = document.getElementById("admin");
-const user = document.getElementById("user");
-
-admin.addEventListener("click", () => {
-    sessionStorage.setItem("main-title", "Увійти як адміністратор");
-})
-
-user.addEventListener("click", () => {
-    sessionStorage.setItem("main-title", "Увійти");
-})
-
+const indexModal = document.getElementById("index-modal");
+function openModal() {
+  indexModal.style.display = "flex";
+}
+function closeModal() {
+  indexModal.style.display = "none";
+}
