@@ -3,7 +3,7 @@
 $servername = "localhost";
 $dbname = 'authentication';
 $username = 'root';
-$password = '';
+$password = 'secret';
 
 // З'єднання з базою даних
 $mysqli = new mysqli($servername, $username, $password, $dbname);

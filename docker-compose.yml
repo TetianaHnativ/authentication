@@ -1,0 +1,29 @@
+version: '3'
+services:
+  php-environment:
+    container_name: authentication
+
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./Authentication:/var/www/html/
+    ports:
+      - 80:80
+  # db:
+  #   container_name: db
+  #   image: mysql:8.0
+  #   restart: always
+  #   environment:
+  #    MYSQL_ROOT_PASSWORD: secret
+  #   ports:
+  #     - "3306:3306"
+  phpmyadmin:
+    image: phpmyadmin:5.1.0
+    container_name: phpmyadmin
+    environment:
+     MYSQL_ROOT_PASSWORD: secret
+     PMA_HOST: php-environment
+    restart: always
+    ports:
+      - 8080:80

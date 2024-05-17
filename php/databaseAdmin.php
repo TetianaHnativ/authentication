@@ -2,7 +2,7 @@
 $host = 'localhost'; // або IP-адреса сервера бази даних
 $dbname = 'authentication';
 $username = 'root';
-$password = '';
+$password = 'secret';
 
 // З'єднання з базою даних
 $mysqli = new mysqli($host, $username, $password, $dbname);
