@@ -1,5 +1,5 @@
 <?php
-//$host = 'localhost';  // або IP-адреса сервера бази даних
+
 $servername = "localhost";
 $dbname = 'authentication';
 $username = 'root';
@@ -40,6 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($oldPassword, $database_password)) {
             if ($newPassword === $passwordConfirm) {
                 $hashed_new_password = password_hash($newPassword, PASSWORD_DEFAULT);
+
                 $sql_update_password = "UPDATE users SET password = '$hashed_new_password' WHERE name = '$username'";
                 if ($mysqli->query($sql_update_password) === TRUE) {
                     echo "success";

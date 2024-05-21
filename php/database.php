@@ -1,6 +1,6 @@
 <?php
-//$servername = "localhost";
-$servername = "db";
+
+$servername = "localhost";
 $dbname = 'authentication';
 $username = 'root';
 $password = 'secret';
@@ -36,17 +36,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $database_password = $row["password"];
         $blocking = $row["blocking"];
         $password_restrictions = $row["password_restrictions"];
+
         if ($blocking) {
             echo "Ваш обліковий запис заблоковано";
         } else {
             if (!$database_password) {
-                echo "registration";
+                echo "registration ";
                 if ($password === $passwordConfirm) {
                     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
                     $sql_insert_password = "UPDATE users SET password = '$hashed_password' WHERE name = '$username'";
                     if ($mysqli->query($sql_insert_password) === TRUE) {
-                        if ($username === "ADMIN") {
-                            echo " admin";
+                        if ($username === "ADMIN" || $username === "MANAGER") {
+                            echo "admin";
                         } else {
                             echo " user";
                         }
@@ -54,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         echo "Помилка при збереженні пароля: " . $mysqli->error;
                     }
                 }
-            } else if ($database_password && password_verify($password, $database_password) && $username === "ADMIN") {
+            } else if ($database_password && password_verify($password, $database_password) && $username === "ADMIN" || $username === "MANAGER") {
                 echo "admin";
             } else if ($database_password && password_verify($password, $database_password) && $username !== "ADMIN") {
                 echo "user";

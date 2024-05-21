@@ -1,5 +1,4 @@
 <?php
-//$host = 'localhost';  // або IP-адреса сервера бази даних
 $servername = "localhost";
 $dbname = 'authentication';
 $username = 'root';

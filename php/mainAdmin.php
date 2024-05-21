@@ -23,6 +23,7 @@
       <button class="button-add">Додати користувача</button>
       <button class="button-change-password">Змінити пароль</button>
     </div>
+    <button class="button-delete" disabled>Видалити користувача</button>
 
     <h2 class="edit-title">Для редагування даних натисніть на рядок таблиці</h2>
 
@@ -34,15 +35,27 @@
           <label for="name" id="edit-name-label" class="modal-label"></label>
           <input type="hidden" name="name" id="edit-name-input" class="modal-field-input" value="" placeholder="Iм'я користувача">
           <div class="modal-checkbox">
-            <label for="blocking" class="modal-label">Блокування облікового запису</label>
+            <label for="blocking" class="modal-label blocking-label">Блокування облікового запису</label>
             <input type="checkbox" name="blocking" id="edit-blocking" class="modal-field-checkbox">
           </div>
           <div class="modal-checkbox">
-            <label for="password-restrictions" class="modal-label">Обмеження на паролі</label>
+            <label for="password-restrictions" class="modal-label password-label">Обмеження на паролі</label>
             <input type="checkbox" name="password-restrictions" id="edit-password-restrictions" class="modal-field-checkbox">
           </div>
           <p class="admin-modal-message"></p>
           <button class="modal-form-button" onclick='saveChanges()'>Зберегти</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal-container" id="manager-modal">
+      <div id="delete-form" class="container">
+        <button class="modal-close-button" id="manager-close-button">x</button>
+        <h3 class="modal-title" id="manager-title">Видалення даних</h3>
+        <form class="modal-form" id="manager-modal-form">
+          <input type="text" name="name" id="manager-name-input" class="modal-field-input" value="" placeholder="Iм'я користувача">
+          <p class="admin-modal-message" id="delete-message"></p>
+          <button class="modal-form-button" id="modal-delete-button" onclick="Delete()">Видалити</button>
         </form>
       </div>
     </div>

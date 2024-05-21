@@ -1,11 +1,11 @@
 <?php
-$host = 'localhost'; // або IP-адреса сервера бази даних
+$servername = "localhost";  // або IP-адреса сервера бази даних
 $dbname = 'authentication';
 $username = 'root';
 $password = 'secret';
 
 // З'єднання з базою даних
-$mysqli = new mysqli($host, $username, $password, $dbname);
+$mysqli = new mysqli($servername, $username, $password, $dbname);
 
 // Перевірка з'єднання
 if ($mysqli->connect_error) {
